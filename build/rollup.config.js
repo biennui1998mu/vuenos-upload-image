@@ -92,7 +92,7 @@ if (!argv.format || argv.format === 'es') {
     input: 'src/entry.esm.ts',
     external,
     output: {
-      file: 'dist/package-name.esm.js',
+      file: 'dist/vuenos-upload-image.esm.js',
       format: 'esm',
       exports: 'named',
     },
@@ -131,9 +131,9 @@ if (!argv.format || argv.format === 'cjs') {
     external,
     output: {
       compact: true,
-      dist: 'build/package-name.ssr.js',
+      dist: 'build/vuenos-upload-image.ssr.js',
       format: 'cjs',
-      name: 'PackageName',
+      name: 'VuenosUploadImage',
       exports: 'auto',
       globals,
     },
@@ -154,9 +154,9 @@ if (!argv.format || argv.format === 'iife') {
     external,
     output: {
       compact: true,
-      file: 'dist/package-name.min.js',
+      file: 'dist/vuenos-upload-image.min.js',
       format: 'iife',
-      name: 'PackageName',
+      name: 'VuenosUploadImage',
       exports: 'auto',
       globals,
     },

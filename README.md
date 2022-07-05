@@ -1,4 +1,4 @@
-# {package-name}
+# vuenos-upload-image
 
 > description
 
@@ -17,13 +17,15 @@ v16.10.0
 
 ## Table of contents
 
-- [{package-name}](#{package-name})
+- [vuenos-upload-image](#vuenos-upload-image)
   - [Prerequisites](#prerequisites)
   - [Table of contents](#table-of-contents)
   - [Getting Started](#getting-started)
   - [Installation](#installation)
   - [Usage](#usage)
     - [Import component](#import-component)
+    - [Upload image](#upload-image)
+    - [Preview image](#preview-image)
   - [Variables binding](#variables-binding)
   - [Versioning](#versioning)
   - [Author](#author)
@@ -35,26 +37,75 @@ These instructions will get you a copy of the project up and running on your loc
 ## Installation
 To install and set up the library, run:
 ```sh
-npm install {package-name}
+npm install vuenos-upload-image
 ```
 
 ## Usage
 
 ### Import component
-
-```html
+```typescript
+import VuenosUploadImage from "vuenos-upload-image";
 ```
 
+```html
+<vuenos-upload-image :imgListPreview="imgListPreview"
+           :type="'upload'"
+           :disabled="true"
+           @getImgFileList="getImgFileList">
+</vuenos-upload-image>
+```
+
+### Upload image
+
+> * Set ```type = 'upload'```
+> * Get list of file image through function ```getImgFileList()```
+
 ```typescript
-import {package-name} from "{package-name}";
+const getImgFileList = (val) => {
+    console.log(val)
+}
+```
+
+* Example
+```html
+<vuenos-upload-image :type="'upload'"
+           @getImgFileList="getImgFileList">
+</vuenos-upload-image>
+```
+
+### Preview image
+
+> * Set ```type = 'preview'```
+>* Pass array of img path to ```:imgListPreview```
+
+```typescript
+const imgListPreview = ref([]);
+```
+
+* Example
+
+```html
+<vuenos-upload-image :type="'preview'"
+           :imgListPreview="imgListPreview">
+</vuenos-upload-image>
 ```
 
 ### Variables binding
-Empty
+
+| ATTRIBUTE      | DESCRIPTION                   |    REQUIRED     |   TYPE   |  ACCEPTED VALUE |   DEFAULT |
+|:---------------|:------------------------------|:---------------:|:--------:|----------------:|----------:|
+| imgListPreview | List of image want to show    | *(Only preview) |  Array   |                 |     empty | 
+| type           | Type of use                   |        *        |  String  |  upload/preview |     empty |
+| getImgFileList | Function get image list       | *(Only upload)  | Function |                 |           |
+| disabled       | disable select img            |                 | Boolean  |      true/false |     false |
+| width          | width of component frame      |                 |  Number  |              90 |      75px |
+| maxImages      | max image can upload          |                 |  Number  |               3 |      9999 |
+| imageTypes     | image type can upload         |                 |  String  | '.jpg,.jpeg,..' | 'image/*' |
+| maxSize        | max size of each image upload |                 |  Number  |         8000000 |   8000000 |
 
 ## Versioning
 
-{package-version}
+v0.0.1
 
 ## Author
 

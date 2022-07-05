@@ -1,7 +1,7 @@
 import { App, Plugin } from 'vue';
 
 // Import vue component
-import component from '@/package-name.vue';
+import component from '@/vuenos-upload-image.vue';
 
 // Define typescript interfaces for installable component
 type InstallableComponent = typeof component & { install: Exclude<Plugin['install'], undefined> };
@@ -15,7 +15,7 @@ export default /*#__PURE__*/((): InstallableComponent => {
 
   // Attach install function executed by Vue.use()
   installable.install = (app: App) => {
-    app.component('packageName', installable);
+    app.component('VuenosUploadImage', installable);
   };
   return installable;
 })();

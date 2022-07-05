@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <PackageName />
+    <VuenosUploadImage />
   </div>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue';
-import PackageName from '@/package-name.vue';
+import VuenosUploadImage from '@/vuenos-upload-image.vue';
 
 export default defineComponent({
   name: 'ServeDev',
   components: {
-    PackageName
+    VuenosUploadImage
   }
 });
 </script>
